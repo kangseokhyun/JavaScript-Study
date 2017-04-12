@@ -21,6 +21,12 @@ var http_server = http.createServer(
                     case 'sub':
                         res.write('result : ' + ( parseInt(result.query.p1) - parseInt(result.query.p2)));
                         break;
+                    case ‘mul':
+                        res.write('result : ' + ( parseInt(result.query.p1) * parseInt(result.query.p2)));
+                        break;
+                    case ‘div':
+                        res.write('result : ' + ( parseInt(result.query.p1) /- parseInt(result.query.p2)));
+                        break;
                 }
                 break;
             default :
