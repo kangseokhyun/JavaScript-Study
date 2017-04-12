@@ -1,0 +1,35 @@
+var http = require('http');
+var UrlParser = require('url');
+var http_server = http.createServer(
+
+    function(req,res){
+        var result = UrlParser.parse(req.url,true);
+
+        console.log(req.url);
+        console.log(result.pathname);
+        console.log(result.query);
+         console.log(result.query.op);
+         console.log(result.query.p1);
+         console.log(result.query.p2);
+
+        switch (result.pathname){
+            case '/calcul':
+                switch (result.query.op){
+                    case 'sum':
+                        res.write('result : ' + ( parseInt(result.query.p1) + parseInt(result.query.p2)));
+                        break;
+                    case 'sub':
+                        res.write('result : ' + ( parseInt(result.query.p1) - parseInt(result.query.p2)));
+                        break;
+                }
+                break;
+            default :
+                res.write('it is calcul server version 1.0')
+        }
+
+        res.end( 'ok' );
+
+    }
+
+);
+http_server.listen(8081);
