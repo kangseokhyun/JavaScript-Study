@@ -8,9 +8,9 @@ var http_server = http.createServer(
         console.log(req.url);
         console.log(result.pathname);
         console.log(result.query);
-         console.log(result.query.op);
-         console.log(result.query.p1);
-         console.log(result.query.p2);
+        console.log(result.query.op);
+        console.log(result.query.p1);
+        console.log(result.query.p2);
 
         switch (result.pathname){
             case '/calcul':
@@ -25,7 +25,7 @@ var http_server = http.createServer(
                         res.write('result : ' + ( parseInt(result.query.p1) * parseInt(result.query.p2)));
                         break;
                     case ‘div':
-                        res.write('result : ' + ( parseInt(result.query.p1) /- parseInt(result.query.p2)));
+                        res.write('result : ' + ( parseInt(result.query.p1) / parseInt(result.query.p2)));
                         break;
                 }
                 break;
